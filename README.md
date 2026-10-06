@@ -1,42 +1,55 @@
 # Social OAuth Login Demo
 
-Demo full-stack để học OAuth 2.0 với Google và Facebook.
+A small full-stack project demonstrating OAuth 2.0 login with Google and Facebook. Built with React, TypeScript, Vite, and NestJS, it redirects users through each provider, handles OAuth callbacks on the backend, and displays basic user profile information on the frontend.
 
-## Luồng đăng nhập
+## Features
+
+- Login with Google OAuth 2.0
+- Login with Facebook OAuth 2.0
+- Backend callback handling with NestJS and Passport
+- Display authenticated user's basic profile on React
+- Simple client-side logout for this learning demo
+
+## Tech Stack
+
+- Frontend: React, TypeScript, Vite
+- Backend: NestJS, TypeScript, Passport
+- OAuth Providers: Google and Facebook
+
+## OAuth Flow
 
 ```text
 React frontend
 → NestJS backend
-→ Google hoặc Facebook
-→ backend callback nhận authorization code
-→ backend lấy profile user
-→ redirect về frontend
-→ hiển thị user và logout giao diện
+→ Google or Facebook
+→ Backend callback receives the authorization code
+→ Backend retrieves the user profile
+→ Backend redirects to React
+→ React displays the user
 ```
 
-Frontend không nhận password, Client Secret hoặc access token của Google/Facebook.
+The application never receives the user's Google or Facebook password. Client secrets stay in the backend environment file and are not committed to Git.
 
-## Cấu trúc project
+## Project Structure
 
 ```text
 social-oauth-login-demo/
-├── backend/                 # NestJS OAuth service
-├── frontend/                # React + TypeScript + Vite
+├── backend/      # NestJS OAuth service
+├── frontend/     # React + Vite application
 ├── .gitignore
 └── README.md
 ```
 
-## Chạy backend
+## Setup
+
+### 1. Configure the backend
 
 ```powershell
 cd backend
 npm install
-npm run start:dev
 ```
 
-Backend chạy mặc định tại `http://localhost:3000`.
-
-Tạo file `backend/.env` và điền credentials thật. Không commit file này.
+Create `backend/.env`:
 
 ```env
 GOOGLE_CLIENT_ID=
@@ -48,7 +61,22 @@ FACEBOOK_APP_SECRET=
 FACEBOOK_CALLBACK_URL=http://localhost:3000/auth/facebook/callback
 ```
 
-## Chạy frontend
+Configure these callback URLs in Google Cloud Console and Meta for Developers:
+
+```text
+http://localhost:3000/auth/google/callback
+http://localhost:3000/auth/facebook/callback
+```
+
+Start the backend:
+
+```powershell
+npm run start:dev
+```
+
+### 2. Configure the frontend
+
+Open a second terminal:
 
 ```powershell
 cd frontend
@@ -56,18 +84,9 @@ npm install
 npm run dev
 ```
 
-Mở `http://localhost:5173`.
+Open `http://localhost:5173` and choose Google or Facebook login.
 
-## OAuth redirect URIs
-
-Google và Facebook cần được cấu hình đúng các callback sau:
-
-```text
-http://localhost:3000/auth/google/callback
-http://localhost:3000/auth/facebook/callback
-```
-
-## Kiểm tra
+## Verification
 
 ```powershell
 cd backend
@@ -80,4 +99,6 @@ npm run build
 npm run lint
 ```
 
-`npm test` hiện không có unit test riêng; lệnh vẫn pass để phản ánh đúng trạng thái project.
+## Notes
+
+This is a learning project for understanding OAuth redirect, callback, authorization code, access token, and frontend/backend cooperation. It intentionally does not use a database, JWT, refresh token, or Docker.
