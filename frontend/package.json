@@ -1,5 +1,5 @@
 {
-  "name": "social-oauth-login-frontend",
+  "name": "oauth-service-demo-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",

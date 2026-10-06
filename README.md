@@ -1,4 +1,4 @@
-# Social OAuth Login Demo
+# OAuth Service Demo
 
 A small full-stack project demonstrating OAuth 2.0 login with Google and Facebook. Built with React, TypeScript, Vite, and NestJS, it redirects users through each provider, handles OAuth callbacks on the backend, and displays basic user profile information on the frontend.
 
@@ -33,7 +33,7 @@ The application never receives the user's Google or Facebook password. Client se
 ## Project Structure
 
 ```text
-social-oauth-login-demo/
+oauth-service-demo/
 ├── backend/      # NestJS OAuth service
 ├── frontend/     # React + Vite application
 ├── .gitignore
