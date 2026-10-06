@@ -1,6 +1,6 @@
 # OAuth Service Demo
 
-A small full-stack project demonstrating OAuth 2.0 login with Google and Facebook. Built with React, TypeScript, Vite, and NestJS, it redirects users through each provider, handles OAuth callbacks on the backend, and displays basic user profile information on the frontend.
+A Demo OAuth 2.0 login with Google and Facebook. Built with React, TypeScript, Vite, and NestJS, it redirects users through each provider, handles OAuth callbacks on the backend, and displays basic user profile information on the frontend.
 
 ## Features
 
